@@ -10,6 +10,8 @@ import Insta from './Allapps/Insta';
 
 import News from './Allapps/AppNews';
 
+import Tuto from './Allapps/TutoFlatlist';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +26,7 @@ const App = () => {
                 <Stack.Screen name="First" component={FirstScreen} />
                 <Stack.Screen name="AppInsta" component={Insta} />
                 <Stack.Screen name="AppNews" component={News} />
+                <Stack.Screen name="AppTuto" component={Tuto} />
             </Stack.Navigator>
 
         </NavigationContainer>

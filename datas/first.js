@@ -14,4 +14,9 @@ export const dataApp = [
         titre:"Action Vérité",
         nomApp:"ActionVerite",
     },
+    {
+        id:4,
+        titre:"Tuto",
+        nomApp:"AppTuto",
+    },
 ];

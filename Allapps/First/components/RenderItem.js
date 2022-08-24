@@ -10,11 +10,13 @@ const RenderItem = ({item}) => {
 
     const navigation = useNavigation();
 
-     const openApp = () => { 
+/* identification de l'element par le nom */     
+    const openApp = () => { 
 
 
         navigation.navigate(item.nomApp);
       }
+      
   return (
     <TouchableOpacity onPress={openApp} style={styles.content}>
       <Text style={styles.titre} >{item.titre}</Text>
