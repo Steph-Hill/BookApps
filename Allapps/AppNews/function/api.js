@@ -1,16 +1,18 @@
 import axios from "axios"
-//url de mon API
+
 const urlApi = 'https://newsapi.org/v2/everything'
-// Clé de mon API
 const apiKey = '09b7594134dd4540b0623605304b380f'
+
+
 
 
 export const apiNews = async ( page ) => {
 
     //Parametres de mon API
-    const params ={
+    const params = {
 
-        q : 'Apple' ,
+        q : 'France' ,
+        lang : 'fr',
         from : '2022-08-24' ,
         sortBy : 'popularity' ,
         apiKey : apiKey,
