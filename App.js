@@ -15,13 +15,19 @@ import Tuto from './Allapps/TutoFlatlist';
 
 import DetailScreen from './Allapps/AppNews/detail';
 
+import Ecommerce from './Allapps/Ecommerce';
+
+import store from './redux/store';
+
+import { Provider } from 'react-redux';
+
 
 const Stack = createNativeStackNavigator();
 
 
 const App = () => {
   return (
-  
+    <Provider store={store}>
         <NavigationContainer>
 
             <Stack.Navigator>
@@ -33,13 +39,15 @@ const App = () => {
                 <Stack.Screen name="AppNews" component={News} />
                 {/* DetailScreenNews */}
                 <Stack.Screen name='DetailScreen' component={DetailScreen}/>
-
+                {/* TutoScreenNews */}
                 <Stack.Screen name="AppTuto" component={Tuto} />
-               
+                {/* Ecommerce App creen */}
+                <Stack.Screen name="AppEcommerce" component={Ecommerce} />
+                            
             </Stack.Navigator>
 
         </NavigationContainer>
-    
+    </Provider>
  
   )
 }
