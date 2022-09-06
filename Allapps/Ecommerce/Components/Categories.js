@@ -1,34 +1,10 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const data = [
+import { useSelector } from 'react-redux'
 
-    {
-        id:1,
-        nom:'cat1',
-    },
-    {
-        id:2,
-        nom:'cat2',
 
-    },
-    {
-        id:3,
-        nom:'cat3',
 
-    },
-    {
-        id:4,
-        nom:'cat4',
-
-    },
-    {
-        id:5,
-        nom:'cat5',
-
-    }
-
-]
 
 RenderCategorie = ({categorie}) => {
 
@@ -43,11 +19,16 @@ RenderCategorie = ({categorie}) => {
 }
 
 const Categories = () => {
+
+    const {dataCategorie} = useSelector(state=>state)
+
+        console.log('add',dataCategorie)
+
   return (
     <View style={styles.content}>
       <Text style={styles.title}>Categories</Text>
       <FlatList
-        data={data}
+        data={dataCategorie}
         renderItem={({item}) => <RenderCategorie
                                 categorie={item}/>}
         keyExtractor={item=>item.nom}

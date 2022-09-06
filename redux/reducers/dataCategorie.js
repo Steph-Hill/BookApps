@@ -7,10 +7,11 @@ const initStateCategories = []
 
 // creation de ma function
 //state init a 
-export default function ( state = initStateCategories, action){
+export default function ( state = initStateCategories,action){
 
     if (action.type == ADD_CATEGORIE) {
         
+        return [...state,action.payload]
 
     } else {
         

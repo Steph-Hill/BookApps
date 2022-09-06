@@ -5,9 +5,15 @@ import Setting from './Screen/Setting';
 
 import { FirebaseContext } from '../../firebaseContext';
 
+import { useDispatch } from 'react-redux'
+import { addCategorie } from '../../redux/action';
+
+
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+
+  const  dispatch = useDispatch();
 
   const firebase = useContext(FirebaseContext)
 
@@ -22,9 +28,24 @@ const App = () => {
           //lit les donnees de categorie
               categories.forEach( categorieData =>{
 
+                const temCategorie = {
+                                        id : categorieData.id,
+                                        nom : categorieData.data().nom
+                                          }
+                  //version destructurée
+                                          /* {
+                                            id : categorieData.id,,
+                                            ...categorieData.data()
+
+                                          } */
+
                 console.log("Mes Categories :", categorieData.data())
+                              
                 
+                dispatch(addCategorie(temCategorie))
+
               }
+
 
           )
           
