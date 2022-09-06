@@ -23,6 +23,7 @@ import { Provider } from 'react-redux';
 
 import auth from '@react-native-firebase/auth';
 
+import TutoFireList from './Allapps/TutoFireList'
 
 
 const Stack = createNativeStackNavigator();
@@ -46,19 +47,22 @@ const App = () => {
     <Provider store={store}>
         <NavigationContainer>
 
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
                 
                 <Stack.Screen name="First" component={FirstScreen} />
                 {/* AppInsta screens */}
                 <Stack.Screen name="AppInsta" component={Insta} />
                 {/* news App screens */}
                 <Stack.Screen name="AppNews" component={News} />
-                {/* DetailScreenNews */}
+                {/* DetailScreen News */}
                 <Stack.Screen name='DetailScreen' component={DetailScreen}/>
-                {/* TutoScreenNews */}
+                {/* TutoScreen News */}
                 <Stack.Screen name="AppTuto" component={Tuto} />
                 {/* Ecommerce App creen */}
                 <Stack.Screen name="AppEcommerce" component={Ecommerce} />
+                {/* AppTutoFireList Screen News */}
+                <Stack.Screen name="AppTutoFireList" component={TutoFireList} />
+
                             
             </Stack.Navigator>
 

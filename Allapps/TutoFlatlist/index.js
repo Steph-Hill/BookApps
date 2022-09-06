@@ -3,12 +3,16 @@ import React from 'react'
 
 import { useState } from 'react'
 
+import firestore from '@react-native-firebase/firestore';
+
+
 const Tuto = () => {
 
     const [getNombre, setNombre] = useState([1,2,3,4])
 
-    const addtNombre = () => { 
+ const addtNombre = async () => { 
 
+  await readStagiaire();
     console.log(getNombre.length)
 
     const tempNombre = [...getNombre , getNombre.length+1]
@@ -17,6 +21,13 @@ const Tuto = () => {
 
        setNombre(getNombre)
        
+    } 
+
+    const readStagiaire = async () => {
+
+      const user = await firestore().collection('stagiaires').doc('sLEc18YruKEKp0WbhYZR').get();
+      console.log('user', user)
+
     }
 
   return (
@@ -24,7 +35,7 @@ const Tuto = () => {
     <FlatList
         ListHeaderComponent={<Button
                                 title='Add'
-                                onPress={addtNombre}
+                                onPress={readStagiaire}
                                 />}
         data={getNombre}
         renderItem={({item})=><Text>{item}</Text>}

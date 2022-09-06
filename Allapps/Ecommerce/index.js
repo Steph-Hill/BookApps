@@ -1,23 +1,56 @@
-import { View, Text } from 'react-native'
+import  React, {useContext, useEffect} from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from './Screen/Home';
+import Setting from './Screen/Setting';
 
-import React from 'react'
+import { FirebaseContext } from '../../firebaseContext';
 
-import Connexion from './Public/Connexion';
+const Tab = createBottomTabNavigator();
 
-import Private from './Private';
+const App = () => {
 
-import { useSelector } from 'react-redux';
+  const firebase = useContext(FirebaseContext)
 
-const Index = () => {
-    /* recupere la variable login présent dans le State */
-    const { login } = useSelector(state => state)
+    const initCategories = async () => {
+
+        const categories = await firebase.getCategories();
+
+        if (!categories.empty) {
+
+          console.log("y ranpli !")
+
+          //lit les donnees de categorie
+              categories.forEach( categorieData =>{
+
+                console.log("Mes Categories :", categorieData.data())
+                
+              }
+
+          )
+          
+        }
+
+    }
+
+  //initialisation de la page
+  useEffect(()=>{
+
+    initCategories();
+
+  },[])
+
   return (
-    <View>
-      <Text>E-Commerce</Text>
-      { !login ? <Connexion/>:
-                <Private/>}
-    </View>
+    
+    
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Screen name="Accueil" component={Home} />
+        <Tab.Screen name="Compte" component={Setting} />
+      </Tab.Navigator>
+  
   )
 }
 
-export default Index
+
+
+
+export default App;  
