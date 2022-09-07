@@ -6,4 +6,6 @@ import compteur from "./compteur";
 
 import dataCategorie from "./dataCategorie";
 
-export default combineReducers({login,compteur,dataCategorie});
+import dataArticle from "./dataArticle";
+
+export default combineReducers({login,compteur,dataCategorie,dataArticle});

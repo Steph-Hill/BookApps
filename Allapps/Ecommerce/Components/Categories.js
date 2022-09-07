@@ -22,7 +22,7 @@ const Categories = () => {
 
     const {dataCategorie} = useSelector(state=>state)
 
-        console.log('add',dataCategorie)
+        console.log('mes categories :',dataCategorie)
 
   return (
     <View style={styles.content}>

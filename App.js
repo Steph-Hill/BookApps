@@ -26,6 +26,7 @@ import auth from '@react-native-firebase/auth';
 import TutoFireList from './Allapps/TutoFireList'
 
 
+
 const Stack = createNativeStackNavigator();
 
 
@@ -60,8 +61,11 @@ const App = () => {
                 <Stack.Screen name="AppTuto" component={Tuto} />
                 {/* Ecommerce App creen */}
                 <Stack.Screen name="AppEcommerce" component={Ecommerce} />
+              
                 {/* AppTutoFireList Screen News */}
                 <Stack.Screen name="AppTutoFireList" component={TutoFireList} />
+                
+
 
                             
             </Stack.Navigator>

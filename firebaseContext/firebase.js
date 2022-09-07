@@ -12,8 +12,16 @@ class Firebase {
 
 
         }
-//lire dans la collection Categorie
-        getCategories = () => this.firestore.collection("Categories").get();
+//liste les Categories
+
+        getCategories = () => this.firestore.collection("Categories").get();  
+        
+//liste les Articles
+
+        getArticles = () => this.firestore.collection("HillionArticles").get();
+
+//permet la lecture d'un element dans collection   HillionArticles
+        getArticleById = (id) => this.firestore.collection("HillionArticles").doc(id).get()
 
 }
 
